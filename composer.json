@@ -8,7 +8,6 @@
         "rejson",
         "php"
     ],
-    "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {
