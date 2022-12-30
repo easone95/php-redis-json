@@ -152,6 +152,11 @@ class RedisClientAdapter implements RedisClientAdapterInterface
 
     protected function parseResponse(string $command, $response)
     {
+        // 判断是否是对象，用以支持事务和管道模式
+        if (is_object($response)) {
+            return $response;
+        }
+        
         $responseParsers = ResponseParser::RESPONSE_PARSER;
         if (isset($responseParsers[$command])) {
             $className = $responseParsers[$command];
