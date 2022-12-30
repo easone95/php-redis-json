@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  php:
+    container_name: phpredis-json
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/app
+  redisjson:
+    container_name: redislab-rejson
+    image: redislabs/rejson:1.0.4
